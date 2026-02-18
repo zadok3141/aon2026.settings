@@ -1,0 +1,32 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="aon2026.settings"
+    >
+
+  <genericsetup:registerProfile
+      name="default"
+      title="OAG Intranet 2026: Install"
+      description="Package to configure a new OAG Intranet 2026 site"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      directory="profiles/default"
+      />
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="OAG Intranet 2026: Uninstall"
+      description="Uninstall OAG Intranet 2026 setup."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      directory="profiles/uninstall"
+      />
+
+  <!-- Hide Uninstall Profile-->
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="aon2026.settings"
+      />
+
+
+  <include package=".upgrades" />
+
+</configure>
