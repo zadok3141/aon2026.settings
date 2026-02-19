@@ -30,6 +30,7 @@ lib64
 parts/
 pyvenv.cfg
 var/
+aon2026.settings.mo
 
 # mxdev
 .installed.txt
