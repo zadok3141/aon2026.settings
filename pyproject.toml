@@ -31,7 +31,7 @@ classifiers = [
 dependencies = [
     "Products.CMFPlone",
     "plone.api",
-    
+
     "z3c.jbot",
 ]
 
@@ -181,6 +181,13 @@ branch = true
 parallel = true
 omit = [
   "src/aon2026/settings/locales/*.py",
+]
+
+[tool.check-manifest]
+ignore = [
+  ".editorconfig",
+  ".pre-commit-config.yaml",
+  "mx.ini",
 ]
 
 [tool.zest-releaser]
