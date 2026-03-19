@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        meta_type="Plone Actions Tool"
+        name="portal_actions"
+        purge="False"
+>
+  <object meta_type="CMF Action Category"
+          name="site_actions"
+          purge="False"
+  >
+    <object meta_type="CMF Action"
+            name="accessibility"
+            i18n:domain="plone"
+    >
+      <property name="visible">False</property>
+    </object>
+    <object meta_type="CMF Action"
+            name="contact"
+            i18n:domain="plone"
+    >
+      <property name="visible">False</property>
+    </object>
+    <object meta_type="CMF Action"
+            name="Contact intranet administrator"
+            i18n:domain="plone"
+    >
+      <property name="title"
+                i18n:translate=""
+      >Contact intranet administrator</property>
+      <property name="url_expr">string:${globals_view/navigationRootUrl}/contact-info</property>
+      <property name="link_target" />
+      <property name="icon_expr" />
+      <property name="permissions">
+        <element value="View" />
+      </property>
+      <property name="visible">True</property>
+    </object>
+    <object meta_type="CMF Action"
+            name="New website goes here"
+            i18n:domain="plone"
+    >
+      <property name="title"
+                i18n:translate=""
+      >New website goes here</property>
+      <property name="url_expr">string:https://oag.parliament.nz</property>
+      <property name="link_target" />
+      <property name="icon_expr" />
+      <property name="permissions">
+        <element value="View" />
+      </property>
+      <property name="visible">True</property>
+    </object>
+  </object>
+</object>

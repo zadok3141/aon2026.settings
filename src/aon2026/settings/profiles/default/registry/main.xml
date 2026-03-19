@@ -3,6 +3,140 @@
           i18n:domain="aon2026.settings"
 >
 
-  <!-- -*- extra stuff goes here -*- -->
+  <!-- Site settings -->
+  <record field="allow_anon_views_about"
+          interface="plone.base.interfaces.controlpanel.ISecuritySchema"
+          name="plone.allow_anon_views_about"
+  >
+    <value>True</value>
+  </record>
+
+  <record field="available_languages"
+          interface="plone.base.interfaces.controlpanel.ILanguageSchema"
+          name="plone.available_languages"
+  >
+    <value>
+      <element>en-nz</element>
+      <element>en</element>
+      <element>mi</element>
+    </value>
+  </record>
+
+  <record field="custom_attributes"
+          interface="plone.base.interfaces.controlpanel.IFilterSchema"
+          name="plone.custom_attributes"
+  >
+    <value purge="False">
+      <element>data-pat-datatables</element>
+    </value>
+  </record>
+
+  <record field="editor_height"
+          interface="plone.base.interfaces.controlpanel.ITinyMCESchema"
+          name="plone.editor_height"
+  >
+    <value>400</value>
+  </record>
+
+  <record field="editor_width"
+          interface="plone.base.interfaces.controlpanel.ITinyMCESchema"
+          name="plone.editor_width"
+  >
+    <value>100%</value>
+  </record>
+
+  <!-- Mail settings -->
+  <record field="email_from_address"
+          interface="plone.base.interfaces.controlpanel.IMailSchema"
+          name="plone.email_from_address"
+  >
+    <value>webmaster@oag.parliament.nz</value>
+  </record>
+
+  <record field="email_from_name"
+          interface="plone.base.interfaces.controlpanel.IMailSchema"
+          name="plone.email_from_name"
+  >
+    <value>Intranet Administrator</value>
+  </record>
+
+  <record field="smtp_host"
+          interface="plone.base.interfaces.controlpanel.IMailSchema"
+          name="plone.smtp_host"
+  >
+    <value>smtp.oag.net</value>
+  </record>
+
+  <record field="smtp_userid"
+          interface="plone.base.interfaces.controlpanel.IMailSchema"
+          name="plone.smtp_userid"
+  >
+    <value>admin</value>
+  </record>
+
+  <!-- User settings -->
+  <record field="enable_user_folders"
+          interface="plone.base.interfaces.controlpanel.ISecuritySchema"
+          name="plone.enable_user_folders"
+  >
+    <value>True</value>
+  </record>
+
+  <record field="enable_user_pwd_choice"
+          interface="plone.base.interfaces.controlpanel.ISecuritySchema"
+          name="plone.enable_user_pwd_choice"
+  >
+    <value>True</value>
+  </record>
+
+  <!-- Display settings -->
+  <record field="first_weekday"
+          interface="plone.base.interfaces.controlpanel.IDateAndTimeSchema"
+          name="plone.first_weekday"
+  >
+    <value>0</value>
+  </record>
+
+  <record field="share_social_data"
+          interface="plone.base.interfaces.controlpanel.ISocialMediaSchema"
+          name="plone.share_social_data"
+  >
+    <value>False</value>
+  </record>
+
+  <record field="show_excluded_items"
+          interface="plone.base.interfaces.controlpanel.INavigationSchema"
+          name="plone.show_excluded_items"
+  >
+    <value>True</value>
+  </record>
+
+  <record field="toolbar_position"
+          interface="plone.base.interfaces.controlpanel.IEditingSchema"
+          name="plone.toolbar_position"
+  >
+    <value>top</value>
+  </record>
+
+  <!-- TinyMCE plugins: add accordion and advlist to defaults -->
+  <record field="plugins"
+          interface="plone.base.interfaces.controlpanel.ITinyMCESchema"
+          name="plone.plugins"
+  >
+    <value purge="False">
+      <element>accordion</element>
+      <element>advlist</element>
+    </value>
+  </record>
+
+  <!-- Search: exclude Image from search results -->
+  <record field="types_not_searched"
+          interface="plone.base.interfaces.controlpanel.ISearchSchema"
+          name="plone.types_not_searched"
+  >
+    <value purge="False">
+      <element>Image</element>
+    </value>
+  </record>
 
 </registry>
