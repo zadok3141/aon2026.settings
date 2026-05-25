@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contentrules>
+  <rule cascading="False"
+        description="To be used for pages that have Comments feature turned on."
+        enabled="True"
+        event="plone.app.discussion.interfaces.ICommentAddedEvent"
+        name="rule-1"
+        stop-after="False"
+        title="Comment added"
+  >
+    <conditions />
+    <actions>
+      <action type="plone.actions.Mail">
+        <property name="subject">Comment added on ${title}</property>
+        <property name="source">webmaster@oag.parliament.nz</property>
+        <property name="recipients">${creator_email}</property>
+        <property name="exclude_actor">False</property>
+        <property name="message">A Comment has been posted by ${comment_user_fullname} ${comment_user_email} on your page ${title} at ${absolute_url}
+
+----
+${comment_text}
+----</property>
+      </action>
+    </actions>
+  </rule>
+  <assignment bubbles="True"
+              enabled="True"
+              location=""
+              name="rule-1"
+  />
+</contentrules>
