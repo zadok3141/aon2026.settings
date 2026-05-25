@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0a0 (unreleased)
+## 1.0.0a0 (2026-05-25)
 
 
-- Nothing changed yet.
+# Initial launch state May 2026.
