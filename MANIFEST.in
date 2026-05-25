@@ -1,0 +1,25 @@
+# Package contents
+recursive-include src/aon2026 *
+include *.md *.rst *.js *.json *.html
+include pyproject.toml
+global-exclude *.pyc
+
+# News fragments (towncrier was removed but keep guard)
+recursive-exclude news *
+exclude news
+
+# Buildout / mxdev artifacts
+prune instance
+prune sources
+prune dist
+prune data
+exclude mx.ini
+exclude instance.yaml
+exclude requirements*.txt
+exclude constraints-mxdev.txt
+exclude *.tgz
+
+# Local config
+exclude .envrc
+exclude .flake8
+exclude .editorconfig
