@@ -3,4 +3,4 @@
 ## 1.0.0a0 (unreleased)
 
 
-- Nothing changed yet.
+# Initial launch state May 2026.
