@@ -1,0 +1,20 @@
+#+CATEGORY: aon2026.settings
+#+NEXT_ID: 2
+
+* ANS-1 Audit the package for lingering oag.{parliament,govt}.nz references :cleanup:
+:PROPERTIES:
+:ADDED:   [2026-08-13 Thu]
+:EFFORT:  0:15
+:END:
+
+- Aim :: Every remaining `oag.parliament.nz` / `oag.govt.nz` mention in this
+  package is inventoried and either updated to `ao.parliament.nz` or
+  recorded as deliberately kept.
+- Next :: `grep -rInE 'oag\.(parliament|govt)\.nz' --exclude-dir=.git .` and triage the hits.
+- Notes :: Follow-up to the 2026-08 email/URL domain migration. One known
+  hit as of [2026-08-13 Thu]:
+  `src/aon2026/settings/profiles/default/actions.xml:45` points a site
+  action at `string:https://oag.parliament.nz` — a rule-7 host in the
+  migration, but outside that plan's addon scope (the from-address change
+  landed separately on devel 2026-08-13). Sibling items: AN-11 (aon2026),
+  OG-1 (oag2026), OGS-1 (oag2026.settings).

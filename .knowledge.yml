@@ -1,0 +1,13 @@
+# .knowledge.yml — project topic declaration. Topics are controlled-
+# vocabulary entries (knowledge-platform bin/kb-vault/taxonomy.yml).
+topics:
+  - t/oag
+  - t/plone
+context: >
+  Plone addon holding site settings for the AON intranet (audit.oag.net):
+  GenericSetup profiles for the registry, site actions and content rules.
+  Checked out into aon2026's src/ during development.
+topics_policy: location
+# ANS allocated 2026-08-13 (absent from the portfolio prefix legend) when
+# the repo gained its first backlog item.
+id_prefix: ANS
