@@ -12,7 +12,7 @@
     <actions>
       <action type="plone.actions.Mail">
         <property name="subject">Comment added on ${title}</property>
-        <property name="source">webmaster@oag.parliament.nz</property>
+        <property name="source">webmaster@ao.parliament.nz</property>
         <property name="recipients">${creator_email}</property>
         <property name="exclude_actor">False</property>
         <property name="message">A Comment has been posted by ${comment_user_fullname} ${comment_user_email} on your page ${title} at ${absolute_url}
