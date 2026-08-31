@@ -50,7 +50,7 @@
           interface="plone.base.interfaces.controlpanel.IMailSchema"
           name="plone.email_from_address"
   >
-    <value>webmaster@oag.parliament.nz</value>
+    <value>webmaster@ao.parliament.nz</value>
   </record>
 
   <record field="email_from_name"

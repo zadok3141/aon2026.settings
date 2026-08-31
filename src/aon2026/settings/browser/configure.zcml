@@ -22,4 +22,24 @@
       type="plone"
       />
 
+  <!-- Environment-gated web statistics: the registry GA snippet is only
+       rendered when AON_SITE_ENV=production, so a dev/test DB restored
+       from a production backup cannot ship the production tag.
+       Registered on our browser layer, which shadows the stock
+       IDefaultBrowserLayer registrations from plone.app.layout. -->
+  <browser:viewlet
+      name="plone.analytics"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      class=".analytics.EnvGatedAnalyticsViewlet"
+      permission="zope2.View"
+      layer="aon2026.settings.interfaces.IBrowserLayer"
+      />
+  <browser:viewlet
+      name="plone.analytics.head"
+      manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+      class=".analytics.EnvGatedAnalyticsHeadViewlet"
+      permission="zope2.View"
+      layer="aon2026.settings.interfaces.IBrowserLayer"
+      />
+
 </configure>
