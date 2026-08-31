@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.1 (unreleased)
+## 1.0.1 (2026-08-31)
 
 - Seed `docs/backlog.org` (ID prefix `ANS`) and declare the project's
   knowledge-program topics in `.knowledge.yml`. First item ANS-1: audit the
