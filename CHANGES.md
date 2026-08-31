@@ -1,6 +1,12 @@
 # Changelog
 
-## 1.0.1 (unreleased)
+## 1.0.1 (2026-08-31)
+
+- Seed `docs/backlog.org` (ID prefix `ANS`) and declare the project's
+  knowledge-program topics in `.knowledge.yml`. First item ANS-1: audit the
+  package for lingering `oag.parliament.nz` / `oag.govt.nz` references left
+  over from the 2026-08 domain migration (one known hit in
+  `profiles/default/actions.xml`).
 
 - Gate the web-statistics viewlets (`plone.analytics`, `plone.analytics.head`)
   on `AON_SITE_ENV`: the registry GA snippet renders only when
