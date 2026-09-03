@@ -3,7 +3,8 @@
 ## 1.0.2 (unreleased)
 
 
-- Nothing changed yet.
+- Update docs (CLAUDE.md, .knowledge.yml) for the site domain rename
+  audit.oag.net -> intranet.ao.parliament.nz.
 
 
 ## 1.0.1 (2026-08-31)
