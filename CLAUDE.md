@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Is
 
-A Plone 6.x addon package (`aon2026.settings`) that provides site settings for the OAG (Office of the Auditor-General) New Zealand intranet at `audit.oag.net`. Generated with Cookieplone. Uses the `plone.autoinclude` entry point for automatic ZCML loading.
+A Plone 6.x addon package (`aon2026.settings`) that provides site settings for the OAG (Office of the Auditor-General) New Zealand intranet at `intranet.ao.parliament.nz`. Generated with Cookieplone. Uses the `plone.autoinclude` entry point for automatic ZCML loading.
 
 Deployed within the `aon2026` parent project (buildout-based). Companion packages in that deployment:
 - `diazotheme.aon2026` — Diazo theme

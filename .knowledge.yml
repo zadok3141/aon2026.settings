@@ -4,7 +4,7 @@ topics:
   - t/oag
   - t/plone
 context: >
-  Plone addon holding site settings for the AON intranet (audit.oag.net):
+  Plone addon holding site settings for the AON intranet (intranet.ao.parliament.nz):
   GenericSetup profiles for the registry, site actions and content rules.
   Checked out into aon2026's src/ during development.
 topics_policy: location
