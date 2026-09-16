@@ -14,4 +14,10 @@ class TestSetupInstall:
 
     def test_latest_version(self, profile_last_version):
         """Test latest version of default profile."""
-        assert profile_last_version(f"{PACKAGE_NAME}:default") == "1000"
+        assert profile_last_version(f"{PACKAGE_NAME}:default") == "1001"
+
+    def test_easyform_max_filesize(self, portal):
+        """The site-wide easyform upload limit is 25 MB (OT-7, 2026-09-16)."""
+        from plone import api
+
+        assert api.portal.get_registry_record("easyform.max_filesize") == 25_000_000

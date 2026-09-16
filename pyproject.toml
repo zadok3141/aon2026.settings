@@ -30,8 +30,8 @@ classifiers = [
 ]
 dependencies = [
     "Products.CMFPlone",
+    "collective.easyform",
     "plone.api",
-
     "z3c.jbot",
 ]
 
