@@ -2,6 +2,11 @@
 
 ## 1.0.2 (unreleased)
 
+- Set the site-wide easyform upload limit (`easyform.max_filesize`) to
+  25,000,000 bytes and declare `collective.easyform` as a package and
+  profile dependency (profile 1000 -> 1001, upgrade step re-imports the
+  registry). Postfix `message_size_limit` on the host must be at least
+  35 MB to match, or form mail is lost silently at commit.
 
 - Update docs (CLAUDE.md, .knowledge.yml) for the site domain rename
   audit.oag.net -> intranet.ao.parliament.nz.
