@@ -44,3 +44,5 @@ aon2026.settings.mo
 /venv/
 constraints*.txt
 requirements*.txt
+# Claude Code per-task worktrees
+/.claude/
