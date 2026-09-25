@@ -14,6 +14,17 @@
         />
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+      profile="aon2026.settings:default"
+      source="1001"
+      destination="1002"
+      >
+    <genericsetup:upgradeDepends
+        title="Replace the 'New website goes here' placeholder site action with 'The Audit Office website' (ao.parliament.nz)"
+        import_steps="actions"
+        />
+  </genericsetup:upgradeSteps>
+
   <!-- -*- extra stuff goes here -*- -->
 
 </configure>

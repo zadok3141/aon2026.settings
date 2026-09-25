@@ -37,12 +37,16 @@
     </object>
     <object meta_type="CMF Action"
             name="New website goes here"
+            remove="True"
+    />
+    <object meta_type="CMF Action"
+            name="audit-office"
             i18n:domain="plone"
     >
       <property name="title"
                 i18n:translate=""
-      >New website goes here</property>
-      <property name="url_expr">string:https://oag.parliament.nz</property>
+      >The Audit Office website</property>
+      <property name="url_expr">string:https://ao.parliament.nz/</property>
       <property name="link_target" />
       <property name="icon_expr" />
       <property name="permissions">

@@ -2,6 +2,16 @@
 
 ## 1.0.2 (unreleased)
 
+- Replace the `New website goes here` placeholder site action with
+  `audit-office` — "The Audit Office website", pointing at
+  `https://ao.parliament.nz/` (profile 1001 -> 1002, upgrade step re-imports
+  `actions`). Backported from production, which had already been corrected by
+  hand; the profile was the stale copy. `remove="True"` clears the placeholder
+  from sites that installed the older profile. Completes the package's half of
+  the 2026-08 domain migration (ANS-1): the audit found one other
+  `oag.parliament.nz` mention, in this changelog's 1.0.1 entry, which is
+  history and is kept deliberately.
+
 - Set the site-wide easyform upload limit (`easyform.max_filesize`) to
   25,000,000 bytes and declare `collective.easyform` as a package and
   profile dependency (profile 1000 -> 1001, upgrade step re-imports the
