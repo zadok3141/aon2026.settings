@@ -31,6 +31,15 @@
     </value>
   </record>
 
+  <record field="valid_tags"
+          interface="plone.base.interfaces.controlpanel.IFilterSchema"
+          name="plone.valid_tags"
+  >
+    <value purge="False">
+      <element>area</element>
+    </value>
+  </record>
+
   <record field="editor_height"
           interface="plone.base.interfaces.controlpanel.ITinyMCESchema"
           name="plone.editor_height"

@@ -25,6 +25,17 @@
         />
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+      profile="aon2026.settings:default"
+      source="1002"
+      destination="1003"
+      >
+    <genericsetup:upgradeDepends
+        title="Add 'area' to the HTML filter's valid tags, so image-map hotspots survive saving (plone.valid_tags)"
+        import_steps="plone.app.registry"
+        />
+  </genericsetup:upgradeSteps>
+
   <!-- -*- extra stuff goes here -*- -->
 
 </configure>
