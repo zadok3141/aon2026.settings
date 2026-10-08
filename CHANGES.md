@@ -2,6 +2,12 @@
 
 ## 1.0.2 (unreleased)
 
+- Add `area` to the HTML filter's valid tags (`plone.valid_tags`, appended
+  with `purge="False"` so Plone's defaults stay), so image-map hotspots in
+  intranet content survive saving in TinyMCE (profile 1002 -> 1003, upgrade
+  step re-imports the registry). `map` was already in the default list; only
+  `area` was missing (ANS-2).
+
 - Replace the `New website goes here` placeholder site action with
   `audit-office` — "The Audit Office website", pointing at
   `https://ao.parliament.nz/` (profile 1001 -> 1002, upgrade step re-imports
