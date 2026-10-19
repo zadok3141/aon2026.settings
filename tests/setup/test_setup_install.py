@@ -14,7 +14,7 @@ class TestSetupInstall:
 
     def test_latest_version(self, profile_last_version):
         """Test latest version of default profile."""
-        assert profile_last_version(f"{PACKAGE_NAME}:default") == "1003"
+        assert profile_last_version(f"{PACKAGE_NAME}:default") == "1004"
 
     def test_easyform_max_filesize(self, portal):
         """The site-wide easyform upload limit is 25 MB (OT-7, 2026-09-16)."""
@@ -43,3 +43,15 @@ class TestSetupInstall:
         """The 'New website goes here' placeholder is gone (ANS-1, 2026-09-25)."""
         site_actions = portal.portal_actions.site_actions
         assert "New website goes here" not in site_actions.objectIds()
+
+    def test_session_refresh_support_installed(self, installer):
+        """Session refresh support renews the login while editors work (AN-52)."""
+        assert installer.is_product_installed("plone.session") is True
+
+    def test_session_properties(self, portal):
+        """8 h idle timeout, 1-day HTTPS-only cookie (AN-52, 2026-10-19)."""
+        session = portal.acl_users.session
+        assert session.getProperty("timeout") == 28800
+        assert session.getProperty("refresh_interval") == 3600
+        assert session.getProperty("cookie_lifetime") == 1
+        assert session.getProperty("secure") is True
