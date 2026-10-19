@@ -36,6 +36,17 @@
         />
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+      profile="aon2026.settings:default"
+      source="1003"
+      destination="1004"
+      >
+    <genericsetup:upgradeStep
+        title="Session lifetime: install Session refresh support if missing, then an 8 h idle timeout and a 1-day, HTTPS-only login cookie (acl_users/session)"
+        handler=".session.configure_session_lifetime"
+        />
+  </genericsetup:upgradeSteps>
+
   <!-- -*- extra stuff goes here -*- -->
 
 </configure>

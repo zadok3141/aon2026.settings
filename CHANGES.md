@@ -2,6 +2,17 @@
 
 ## 1.0.2 (unreleased)
 
+- Capture the login session settings in the profile: Session refresh support
+  (`profile-plone.session:default`, now a profile and package dependency) and
+  the session plugin's cookie validity timeout 28800 s (8 h idle, since the
+  refresh support renews the ticket while the editor is active), refresh
+  interval 3600 s, cookie lifetime 1 day and HTTPS-only cookie, applied by a
+  post-handler (profile 1003 -> 1004, upgrade step installs the refresh
+  support if missing and sets the same values). Plone's 2 h timeout and
+  browser-session cookie logged editors out mid-edit; every OAG site was set
+  this way by hand on 2026-10-19, so the upgrade changes nothing on the live
+  instances (AN-52).
+
 - Add `area` to the HTML filter's valid tags (`plone.valid_tags`, appended
   with `purge="False"` so Plone's defaults stay), so image-map hotspots in
   intranet content survive saving in TinyMCE (profile 1002 -> 1003, upgrade
