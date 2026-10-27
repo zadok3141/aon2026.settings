@@ -14,7 +14,7 @@ class TestSetupInstall:
 
     def test_latest_version(self, profile_last_version):
         """Test latest version of default profile."""
-        assert profile_last_version(f"{PACKAGE_NAME}:default") == "1004"
+        assert profile_last_version(f"{PACKAGE_NAME}:default") == "1005"
 
     def test_easyform_max_filesize(self, portal):
         """The site-wide easyform upload limit is 25 MB (OT-7, 2026-09-16)."""
@@ -29,6 +29,14 @@ class TestSetupInstall:
         valid_tags = api.portal.get_registry_record("plone.valid_tags")
         assert "area" in valid_tags
         assert "map" in valid_tags
+
+    def test_comments_not_searched(self, portal):
+        """Comments are kept out of search results, Image still is (AN-1)."""
+        from plone import api
+
+        types_not_searched = api.portal.get_registry_record("plone.types_not_searched")
+        assert "Discussion Item" in types_not_searched
+        assert "Image" in types_not_searched
 
     def test_audit_office_site_action(self, portal):
         """The site action points at the Audit Office site (ANS-1, 2026-09-25)."""

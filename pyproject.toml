@@ -32,6 +32,7 @@ dependencies = [
     "Products.CMFPlone",
     "collective.easyform",
     "plone.api",
+    "plone.app.discussion",
     "plone.session",
     "z3c.jbot",
 ]
