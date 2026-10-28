@@ -47,6 +47,17 @@
         />
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+      profile="aon2026.settings:default"
+      source="1004"
+      destination="1005"
+      >
+    <genericsetup:upgradeDepends
+        title="Exclude comments from search results, so a comment hit no longer 500s live search or sends visitors to the login form (plone.types_not_searched)"
+        import_steps="plone.app.registry"
+        />
+  </genericsetup:upgradeSteps>
+
   <!-- -*- extra stuff goes here -*- -->
 
 </configure>

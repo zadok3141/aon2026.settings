@@ -138,13 +138,18 @@
     </value>
   </record>
 
-  <!-- Search: exclude Image from search results -->
+  <!-- Search: exclude Image and comments from search results.
+       Comments break search: a comment hit has no image, so @@ajax-search
+       500s on it, and a comment on private content stays findable by
+       Anonymous but can't be opened, so the results page sends the
+       visitor to the login form (AN-1, AN-14, 2026-10-28). -->
   <record field="types_not_searched"
           interface="plone.base.interfaces.controlpanel.ISearchSchema"
           name="plone.types_not_searched"
   >
     <value purge="False">
       <element>Image</element>
+      <element>Discussion Item</element>
     </value>
   </record>
 

@@ -2,6 +2,16 @@
 
 ## 1.0.2 (unreleased)
 
+- Exclude comments (`Discussion Item`) from search results, appended to
+  `plone.types_not_searched` beside `Image` (profile 1004 -> 1005, upgrade
+  step re-imports the registry). Comment hits broke intranet search in two
+  ways: live search 500s on a comment because it has no image, and a
+  comment on private content stays findable by Anonymous but can't be
+  opened, so the results page sends the visitor to the login form (AN-1,
+  AN-14). Comments (`profile-plone.app.discussion:default`) are now a
+  profile and package dependency: the registry only accepts installed
+  types, and the intranet has always carried them.
+
 - Capture the login session settings in the profile: Session refresh support
   (`profile-plone.session:default`, now a profile and package dependency) and
   the session plugin's cookie validity timeout 28800 s (8 h idle, since the
