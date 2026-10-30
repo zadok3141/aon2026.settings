@@ -3,18 +3,60 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     >
 
-  <!-- Example upgrade step
   <genericsetup:upgradeSteps
       profile="aon2026.settings:default"
       source="1000"
       destination="1001"
       >
     <genericsetup:upgradeDepends
-        title="Update registry value"
+        title="Set the easyform upload limit to 25 MB (easyform.max_filesize)"
         import_steps="plone.app.registry"
         />
   </genericsetup:upgradeSteps>
-  -->
+
+  <genericsetup:upgradeSteps
+      profile="aon2026.settings:default"
+      source="1001"
+      destination="1002"
+      >
+    <genericsetup:upgradeDepends
+        title="Replace the 'New website goes here' placeholder site action with 'The Audit Office website' (ao.parliament.nz)"
+        import_steps="actions"
+        />
+  </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeSteps
+      profile="aon2026.settings:default"
+      source="1002"
+      destination="1003"
+      >
+    <genericsetup:upgradeDepends
+        title="Add 'area' to the HTML filter's valid tags, so image-map hotspots survive saving (plone.valid_tags)"
+        import_steps="plone.app.registry"
+        />
+  </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeSteps
+      profile="aon2026.settings:default"
+      source="1003"
+      destination="1004"
+      >
+    <genericsetup:upgradeStep
+        title="Session lifetime: install Session refresh support if missing, then an 8 h idle timeout and a 1-day, HTTPS-only login cookie (acl_users/session)"
+        handler=".session.configure_session_lifetime"
+        />
+  </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeSteps
+      profile="aon2026.settings:default"
+      source="1004"
+      destination="1005"
+      >
+    <genericsetup:upgradeDepends
+        title="Exclude comments from search results, so a comment hit no longer 500s live search or sends visitors to the login form (plone.types_not_searched)"
+        import_steps="plone.app.registry"
+        />
+  </genericsetup:upgradeSteps>
 
   <!-- -*- extra stuff goes here -*- -->
 

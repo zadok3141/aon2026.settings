@@ -31,6 +31,15 @@
     </value>
   </record>
 
+  <record field="valid_tags"
+          interface="plone.base.interfaces.controlpanel.IFilterSchema"
+          name="plone.valid_tags"
+  >
+    <value purge="False">
+      <element>area</element>
+    </value>
+  </record>
+
   <record field="editor_height"
           interface="plone.base.interfaces.controlpanel.ITinyMCESchema"
           name="plone.editor_height"
@@ -129,14 +138,31 @@
     </value>
   </record>
 
-  <!-- Search: exclude Image from search results -->
+  <!-- Search: exclude Image and comments from search results.
+       Comments break search: a comment hit has no image, so @@ajax-search
+       500s on it, and a comment on private content stays findable by
+       Anonymous but can't be opened, so the results page sends the
+       visitor to the login form (AN-1, AN-14, 2026-10-28). -->
   <record field="types_not_searched"
           interface="plone.base.interfaces.controlpanel.ISearchSchema"
           name="plone.types_not_searched"
   >
     <value purge="False">
       <element>Image</element>
+      <element>Discussion Item</element>
     </value>
+  </record>
+
+  <!-- easyform: site-wide upload limit, in bytes of raw file size.
+       25 MB settled 2026-09-16 (OT-7) as the common value across the OAG
+       sites (office mail limit 75 MB; largest LAMIA attachment ever ~10 MB;
+       Amazon SES caps the encoded message at 40 MB). Postfix
+       message_size_limit on the host must be at least 1.4x this (35 MB). -->
+  <record field="max_filesize"
+          interface="collective.easyform.browser.controlpanel.IEasyFormControlPanel"
+          name="easyform.max_filesize"
+  >
+    <value>25000000</value>
   </record>
 
 </registry>

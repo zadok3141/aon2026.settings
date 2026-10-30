@@ -1,5 +1,59 @@
 # Changelog
 
+## 1.1.0 (2026-10-30)
+
+- Minor release: the default profile moves from 1000 to 1005 through five
+  upgrade steps, so run the `aon2026.settings` upgrades on each site after
+  deploying. New package and profile dependencies: `collective.easyform`,
+  `plone.session` and `plone.app.discussion`.
+
+- Exclude comments (`Discussion Item`) from search results, appended to
+  `plone.types_not_searched` beside `Image` (profile 1004 -> 1005, upgrade
+  step re-imports the registry). Comment hits broke intranet search in two
+  ways: live search 500s on a comment because it has no image, and a
+  comment on private content stays findable by Anonymous but can't be
+  opened, so the results page sends the visitor to the login form (AN-1,
+  AN-14). Comments (`profile-plone.app.discussion:default`) are now a
+  profile and package dependency: the registry only accepts installed
+  types, and the intranet has always carried them.
+
+- Capture the login session settings in the profile: Session refresh support
+  (`profile-plone.session:default`, now a profile and package dependency) and
+  the session plugin's cookie validity timeout 28800 s (8 h idle, since the
+  refresh support renews the ticket while the editor is active), refresh
+  interval 3600 s, cookie lifetime 1 day and HTTPS-only cookie, applied by a
+  post-handler (profile 1003 -> 1004, upgrade step installs the refresh
+  support if missing and sets the same values). Plone's 2 h timeout and
+  browser-session cookie logged editors out mid-edit; every OAG site was set
+  this way by hand on 2026-10-19, so the upgrade changes nothing on the live
+  instances (AN-52).
+
+- Add `area` to the HTML filter's valid tags (`plone.valid_tags`, appended
+  with `purge="False"` so Plone's defaults stay), so image-map hotspots in
+  intranet content survive saving in TinyMCE (profile 1002 -> 1003, upgrade
+  step re-imports the registry). `map` was already in the default list; only
+  `area` was missing (ANS-2).
+
+- Replace the `New website goes here` placeholder site action with
+  `audit-office` — "The Audit Office website", pointing at
+  `https://ao.parliament.nz/` (profile 1001 -> 1002, upgrade step re-imports
+  `actions`). Backported from production, which had already been corrected by
+  hand; the profile was the stale copy. `remove="True"` clears the placeholder
+  from sites that installed the older profile. Completes the package's half of
+  the 2026-08 domain migration (ANS-1): the audit found one other
+  `oag.parliament.nz` mention, in this changelog's 1.0.1 entry, which is
+  history and is kept deliberately.
+
+- Set the site-wide easyform upload limit (`easyform.max_filesize`) to
+  25,000,000 bytes and declare `collective.easyform` as a package and
+  profile dependency (profile 1000 -> 1001, upgrade step re-imports the
+  registry). Postfix `message_size_limit` on the host must be at least
+  35 MB to match, or form mail is lost silently at commit.
+
+- Update docs (CLAUDE.md, .knowledge.yml) for the site domain rename
+  audit.oag.net -> intranet.ao.parliament.nz.
+
+
 ## 1.0.1 (2026-08-31)
 
 - Seed `docs/backlog.org` (ID prefix `ANS`) and declare the project's

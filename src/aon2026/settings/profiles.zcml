@@ -10,6 +10,7 @@
       description="Package to configure a new OAG Intranet 2026 site"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       directory="profiles/default"
+      post_handler=".setuphandlers.session.post_install"
       />
 
   <genericsetup:registerProfile
