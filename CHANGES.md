@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1 (unreleased)
+
+
+- Nothing changed yet.
+
+
 ## 1.1.0 (2026-10-30)
 
 - Minor release: the default profile moves from 1000 to 1005 through five
