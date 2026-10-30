@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.2 (unreleased)
+## 1.1.0 (2026-10-30)
 
 - Minor release: the default profile moves from 1000 to 1005 through five
   upgrade steps, so run the `aon2026.settings` upgrades on each site after
