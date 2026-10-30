@@ -2,6 +2,11 @@
 
 ## 1.0.2 (unreleased)
 
+- Minor release: the default profile moves from 1000 to 1005 through five
+  upgrade steps, so run the `aon2026.settings` upgrades on each site after
+  deploying. New package and profile dependencies: `collective.easyform`,
+  `plone.session` and `plone.app.discussion`.
+
 - Exclude comments (`Discussion Item`) from search results, appended to
   `plone.types_not_searched` beside `Image` (profile 1004 -> 1005, upgrade
   step re-imports the registry). Comment hits broke intranet search in two
